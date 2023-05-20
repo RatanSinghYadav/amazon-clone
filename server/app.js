@@ -7,21 +7,20 @@ const router = require('./routes/router')
 const cookieParser = require("cookie-parser");
 const Products = require('./models/productSchema')
 const DefaultData = require('./defaultdata.js')
+const PORT = process.env.PORT || 8000
 
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
-module.exports = function (app) {
-  app.use(
+app.use(
     '/api',
     createProxyMiddleware({
       target: 'https://app-01.onrender.com', // Replace with your target server URL
       changeOrigin: true,
       credentials: true, // Allow sending of cookies
-      methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-      allowedHeaders: ['Content-Type', 'Authorization', 'Set-Cookie']
+      secure: false,
     })
   );
-};
+
 
 
 const corsOptions = {
@@ -38,7 +37,7 @@ app.use(express.json());
 app.use(router);
 
 
-app.listen(8000, () => {
+app.listen(PORT, () => {
   console.log("server is running...");
 });
 
