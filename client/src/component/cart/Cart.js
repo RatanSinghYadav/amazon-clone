@@ -15,7 +15,7 @@ function Cart() {
     const {account,setAccount} = useContext(Logincontext)
 
     const getinddata = async () => {
-        const res = await fetch(`http://localhost:8000/getproductsone/${id}`, {
+        const res = await fetch(`https://app-01.onrender.com/getproductsone/${id}`, {
             method: "GET",
             headers: {
                 Accept: "application/json",
@@ -41,7 +41,7 @@ function Cart() {
     // add to cart function
 
     const addtocart = async (id) => {
-        const checkres = await fetch(`http://localhost:8000/addcart/${id}`, {
+        const checkres = await fetch(`https://app-01.onrender.com/addcart/${id}`, {
             method: 'POST',
             headers: {
                 Accept: "application/json",

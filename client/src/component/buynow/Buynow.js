@@ -10,7 +10,7 @@ function Buynow() {
     const [cartdata, setCartdata] = useState("");
 
     const getdatabuy = async () => {
-        const res = await fetch("http://localhost:8000/cartdetails", {
+        const res = await fetch("https://app-01.onrender.com/cartdetails", {
             method: "GET",
             headers: {
                 Accept:"application/json",

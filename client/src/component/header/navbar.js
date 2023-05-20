@@ -55,7 +55,7 @@ function Navbar() {
     const { account, setAccount } = useContext(Logincontext);
 
     const getdetailsvaliduser = async () => {
-        const res = await fetch("http://localhost:8000/validuser", {
+        const res = await fetch("https://app-01.onrender.com/validuser", {
             method: "GET",
             headers: {
                 Accept: "application/json",
@@ -94,7 +94,7 @@ function Navbar() {
     // for logout
     const navigate = useNavigate()
     const logoutuser = async () => {
-        const res2 = await fetch("http://localhost:8000/logout", {
+        const res2 = await fetch("https://app-01.onrender.com/logout", {
             method: "GET",
             headers: {
                 Accept: "application/json",
