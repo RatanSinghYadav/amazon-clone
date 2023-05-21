@@ -9,22 +9,9 @@ const Products = require('./models/productSchema')
 const DefaultData = require('./defaultdata.js')
 const PORT = process.env.PORT || 8000
 
-const { createProxyMiddleware } = require('http-proxy-middleware');
-
-app.use(
-    '/api',
-    createProxyMiddleware({
-      target: 'https://app-01.onrender.com', // Replace with your target server URL
-      changeOrigin: true,
-      credentials: true, // Allow sending of cookies
-      secure: false,
-    })
-  );
-
-
 
 const corsOptions = {
-  origin: 'http://localhost:3000', // Replace with your client's origin
+  origin: 'https://singular-fairy-46978e.netlify.app/', // Replace with your client's origin
   credentials: true, // Allow sending of cookies
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'Set-Cookie']
