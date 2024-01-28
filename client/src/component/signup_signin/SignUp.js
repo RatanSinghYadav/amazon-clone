@@ -67,7 +67,7 @@ function SignUp() {
             });
 
             const data = await res.json();
-            console.log(data);
+            // console.log(data);
 
             if (res.status === 422 || !data) {
                 toast.error("Invalid Details 👎!", {

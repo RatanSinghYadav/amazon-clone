@@ -11,7 +11,7 @@ const authenticate = require('../middleware/authenticate')
 router.get('/getproducts', async (req, res) => {
     try {
         const productsdata = await Products.find();
-        console.log(productsdata);
+        // console.log(productsdata);
         res.status(201).json(productsdata);
     } catch (error) {
         console.log("error" + error.message);
@@ -25,7 +25,7 @@ router.get('/getproductsone/:id', async (req, res) => {
     try {
         const { id } = req.params;
         const data = await Products.findOne({ id: id });
-        console.log(data);
+        // console.log(data);
         res.status(201).json(data);
     } catch (error) {
         res.status(400).json("error found");
@@ -59,7 +59,7 @@ router.post('/register', async (req, res) => {
             // yaha pe hasing krenge 
 
             const storedata = await finaluser.save();
-            console.log(storedata + "user successfully added");
+            // console.log(storedata + "user successfully added");
             res.status(201).json(storedata);
         }
 
@@ -91,7 +91,7 @@ router.post("/login", async (req, res) => {
         const match = await bcrypt.compare(String(password), String(userlogin.password));
 
 
-        console.log(match);
+        // console.log(match);
 
 
 
@@ -103,7 +103,7 @@ router.post("/login", async (req, res) => {
         // Genrate JWT Token
 
         const authToken = await userlogin.generateAuthtoken();
-        console.log(authToken);
+        // console.log(authToken);
 
         res.cookie("AmazonWeb", authToken, {
             // expires: new Date(Date.now() + 900000),
@@ -126,15 +126,15 @@ router.post("/addcart/:id", authenticate, async (req, res) => {
     try {
         const { id } = req.params;
         const cart = await Products.findOne({ id: id });
-        console.log(cart + "cart milta hain");
+        // console.log(cart + "cart milta hain");
 
         const Usercontact = await USER.findOne({ _id: req.userID });
-        console.log(Usercontact + "user milta hain");
+        // console.log(Usercontact + "user milta hain");
 
 
         if (Usercontact) {
             const cartData = await Usercontact.addcartdata(cart);
-            console.log(cartData);
+            // console.log(cartData);
             await Usercontact.save();
             res.status(201).json(Usercontact);
         } else {
@@ -196,7 +196,7 @@ router.get("/logout", authenticate, async (req, res) => {
         res.clearCookie("AmazonWeb", { path: "/" });
         req.rootUser.save();
         res.status(201).json(req.rootUser.tokens);
-        console.log("user logout");
+        // console.log("user logout");
 
     } catch (error) {
         console.log(error + "jwt provide then logout");

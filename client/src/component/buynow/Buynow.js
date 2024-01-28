@@ -21,7 +21,7 @@ function Buynow() {
         });
 
         const data = await res.json();
-        console.log(data.carts);
+        // console.log(data.carts);
 
         if (res.status !== 201) {
             alert("no data available")
