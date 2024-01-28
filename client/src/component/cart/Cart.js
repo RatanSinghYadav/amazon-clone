@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import '../cart/cart.css';
 import { Logincontext } from '../context/Contextprovider';
 import CircularProgress from '@mui/material/CircularProgress';
+import { url } from '../constant';
 
 function Cart() {
     const [inddata, setIndedata] = useState("");
@@ -15,7 +16,7 @@ function Cart() {
     const {account,setAccount} = useContext(Logincontext)
 
     const getinddata = async () => {
-        const res = await fetch(`https://app-01.onrender.com/getproductsone/${id}`, {
+        const res = await fetch(`${url}/getproductsone/${id}`, {
             method: "GET",
             headers: {
                 Accept: "application/json",
@@ -41,7 +42,7 @@ function Cart() {
     // add to cart function
 
     const addtocart = async (id) => {
-        const checkres = await fetch(`https://app-01.onrender.com/addcart/${id}`, {
+        const checkres = await fetch(`${url}/addcart/${id}`, {
             method: 'POST',
             headers: {
                 Accept: "application/json",

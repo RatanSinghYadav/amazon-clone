@@ -4,6 +4,8 @@ import { NavLink } from 'react-router-dom';
 import { Divider } from '@mui/material';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { url } from '../constant';
+
 
 function SignUp() {
     const [udata, setUdata] = useState({
@@ -54,7 +56,7 @@ function SignUp() {
                     position: "top-center"
                 });
             }else{
-                const res = await fetch("https://app-01.onrender.com/register", {
+                const res = await fetch(`${url}/register`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

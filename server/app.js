@@ -9,14 +9,13 @@ const Products = require('./models/productSchema')
 const DefaultData = require('./defaultdata.js')
 const PORT = process.env.PORT || 8000
 
-
 const corsOptions = {
-  origin: 'https://singular-fairy-46978e.netlify.app/', // Replace with your client's origin
+  origin: 'http://localhost:3000', // Replace with your client's origin
   credentials: true, // Allow sending of cookies
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'Set-Cookie']
 };
-
+ 
 app.use(cors(corsOptions));
 
 app.use(cookieParser(""));

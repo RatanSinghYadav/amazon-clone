@@ -14,6 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useSelector } from "react-redux";
+import { url } from '../constant';
 import { Drawer, IconButton, List, ListItem } from '@mui/material';
 
 function Navbar() {
@@ -55,7 +56,7 @@ function Navbar() {
     const { account, setAccount } = useContext(Logincontext);
 
     const getdetailsvaliduser = async () => {
-        const res = await fetch("https://app-01.onrender.com/validuser", {
+        const res = await fetch(`${url}/validuser`, {
             method: "GET",
             headers: {
                 Accept: "application/json",
@@ -94,7 +95,7 @@ function Navbar() {
     // for logout
     const navigate = useNavigate()
     const logoutuser = async () => {
-        const res2 = await fetch("https://app-01.onrender.com/logout", {
+        const res2 = await fetch(`${url}/logout`, {
             method: "GET",
             headers: {
                 Accept: "application/json",

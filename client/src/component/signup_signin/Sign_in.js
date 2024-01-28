@@ -4,6 +4,8 @@ import '../signup_signin/signup.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Logincontext } from '../context/Contextprovider';
+import { url } from '../constant';
+
 
 function Sign_in() {
     const [logdata, setData] = useState(
@@ -44,7 +46,7 @@ function Sign_in() {
                     position: "top-center"
                 });
             }else{
-                const res = await fetch("https://app-01.onrender.com/login", {
+                const res = await fetch(`${url}/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

@@ -5,12 +5,13 @@ import Option from './Option';
 import Right from './Right';
 import Subtotal from './Subtotal';
 import Empty from './Empty';
+import { url } from '../constant';
 
 function Buynow() {
     const [cartdata, setCartdata] = useState("");
 
     const getdatabuy = async () => {
-        const res = await fetch("https://app-01.onrender.com/cartdetails", {
+        const res = await fetch(`${url}/cartdetails`, {
             method: "GET",
             headers: {
                 Accept:"application/json",

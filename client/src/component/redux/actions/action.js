@@ -1,6 +1,6 @@
 export const getProducts = ()=> async(dispatch)=>{
     try {
-        const data = await fetch("https://app-01.onrender.com/getproducts",{
+        const data = await fetch("http://localhost:8000/getproducts",{
                 method:"GET",
                 headers:{
                     "Content-Type":"application/json"

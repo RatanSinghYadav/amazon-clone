@@ -2,6 +2,7 @@ import React,{ useContext } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Logincontext } from '../context/Contextprovider';
+import { url } from '../constant';
 
 function Option({deletedata,get}) {
 
@@ -10,7 +11,7 @@ function Option({deletedata,get}) {
 
     const removedata = async (id) => {
         try {
-            const res = await fetch(`https://app-01.onrender.com/remove/${id}`, {
+            const res = await fetch(`${url}/remove/${id}`, {
                 method: "DELETE",
                 headers: {
                     Accept: "application/json",
